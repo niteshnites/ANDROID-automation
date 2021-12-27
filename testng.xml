@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Parallel Suite" thread-count="2">
+
+    <test name="TEST_GROUP_1">
+        <parameter name="udid" value="69db29dc"/>
+        <parameter name="platformVersion" value="11.0"/>
+        <parameter name="systemPort" value="8200"/>
+        <parameter name="port" value="4723"/>
+        <classes>
+            <class name="calculator_tests.HomePageValidationTest"/>
+            <class name="calculator_tests.AdditionTest"/>
+            <class name="calculator_tests.DivisionTest"/>
+        </classes>
+    </test>
+
+    <test name="TEST_GROUP_2">
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="platformVersion" value="11.0"/>
+        <parameter name="systemPort" value="8299"/>
+        <parameter name="port" value="4724"/>
+        <classes>
+            <class name="calculator_tests.SubtractionTest"/>
+            <class name="calculator_tests.MultiplicationTest"/>
+        </classes>
+    </test>
+
+</suite>
