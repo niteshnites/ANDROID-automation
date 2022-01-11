@@ -5,6 +5,8 @@ import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
@@ -84,7 +86,10 @@ public class BaseDriver extends Loader {
             File file = new File(appPath);
             caps.setCapability(MobileCapabilityType.APP, file.getAbsolutePath());
 
-            singleSharedDriver.set(new AppiumDriver<>(new URL(url), caps));
+            AppiumDriver<MobileElement> appiumDriver = new AppiumDriver<>(new URL(appiumServiceUrl), caps);
+            appiumDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            singleSharedDriver.set(appiumDriver);
+
             runningDrivers.put(Thread.currentThread().getId(), singleSharedDriver.get());
             return driver = singleSharedDriver.get();
 

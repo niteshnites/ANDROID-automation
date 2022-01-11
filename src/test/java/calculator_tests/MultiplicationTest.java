@@ -10,6 +10,7 @@ public class MultiplicationTest extends BaseDriver {
     @Test
     public void multiplicationTest_01() {
         HomePage homePage = new HomePage(driver);
+
         homePage.clickOnDigit_4();
         homePage.clickOnMultiplyOperation();
         homePage.clickOnDigit_3();

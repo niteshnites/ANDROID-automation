@@ -10,6 +10,7 @@ public class AdditionTest extends BaseDriver {
     @Test
     public void additionTest_01() {
         HomePage homePage = new HomePage(driver);
+
         homePage.clickOnDigit_5();
         homePage.clickOnAdditionOperation();
         homePage.clickOnDigit_6();
